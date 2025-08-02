@@ -1,0 +1,76 @@
+.workflow-canvas {
+  /* Temporarily commented out to debug layout issues */
+  /* background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px; */
+}
+
+.node-handle {
+  width: 12px;
+  height: 12px;
+  background: #3b82f6;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.node-handle:hover {
+  background: #2563eb;
+  transform: scale(1.2);
+}
+
+.node-handle.input {
+  left: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.node-handle.output {
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.workflow-connection {
+  stroke: #3b82f6;
+  stroke-width: 2;
+  fill: none;
+  marker-end: url(#arrowhead);
+}
+
+.workflow-connection.executing {
+  stroke: #10b981;
+  stroke-width: 3;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.node-drag-preview {
+  pointer-events: none;
+  opacity: 0.8;
+  transform: rotate(5deg);
+}
+
+.drop-zone-active {
+  background: rgba(59, 130, 246, 0.1);
+  border: 2px dashed #3b82f6;
+}
+
+.execution-indicator {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 12px;
+  height: 12px;
+  background: #10b981;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  animation: pulse 1s infinite;
+}
